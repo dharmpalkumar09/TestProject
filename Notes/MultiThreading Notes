@@ -1,0 +1,64 @@
+Basic way for creating Thread in  Java .
+
+1) By extending Thread class
+2) Implement Runnable interface
+
+2nd approach is best because , it gives us space to extends the class which is implements Runnable interface.
+
+*--> When and how we create Lambda Expression:?
+
+Another way to create Thread by using Lambda expression as Runnabale interface is one type of Functional interface.
+For creating lambda expression interface should be functional interface. :-
+
+What is functional interface?
+The interface which contains single abstract method.
+
+2. Thread scheduler(TS) and Thread Lifecycle(TL):
+
+TS: It is responsible for order of thread executes in OS. OS uses below schedular alogorithm to schedule threads internally:
+ A) First COme first serve (FCFS)
+ B) Shortest Job Next(SJN)
+ C) Priority
+ D) Shortest Remaining Time(SRT)
+ E) Round Robbin(RR)
+ F) Multiple-Level Queues Scheduling
+
+* why we call Start method , why cant Run method directly?
+Ans-> by calling Start method , before running the thread we are scheduing the thread. If we call run method , then it will be normal method call
+
+### Thread Life Cycle: ->
+
+Different Thread state:
+ A)Start/Born
+ B)Ready To Run
+ C)Running
+ D)Waiting
+ E)Sleeping
+ F)Blocked
+ G)Dead
+
+Core methods of thread class(): ->
+Thread are total 9 constructor.
+
+Thread priority range from 1-10, 1 is minimum proority 10 is mximum priority 5 is normal priority which is default priority.
+If we set priority out of the range then we will get IlllegalArgument Exception
+
+Thread coordination methods:
+
+A)yield():-> When we call yield method on thred then it will switch from running to runnable state and thread scheduler allocate processor to thread having with same priority.
+B)join():->
+C)sleep()
+D)interrupt() -->
+
+Interrupt ans joins creates deadlock situations.
+
+
+
+
+
+
+
+
+
+
+
