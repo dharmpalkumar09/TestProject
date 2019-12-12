@@ -46,16 +46,77 @@ If we set priority out of the range then we will get IlllegalArgument Exception
 Thread coordination methods:
 
 A)yield():-> When we call yield method on thred then it will switch from running to runnable state and thread scheduler allocate processor to thread having with same priority.
-B)join():->
+
+Thread switches from running to runnable state.
+B)join():-> Thread status switches from running to waiting state. We can acheive deadlock by using join.
 C)sleep()
-D)interrupt() -->
+D)interrupt() --> When a thread is sleeping or in waiting state we can or some other thread can interrupt that thread by calling interrupt() method on the thread.
 
-Interrupt ans joins creates deadlock situations.
+    public void interrupt()
+    public static boolean interrupted() // It set the flag to false if it is true.
+    public boolean isinterrupted()
+
+Interrupt and joins creates deadlock situations.
 
 
+#################################################################################################################
+
+********************* Concurrency Challengaes and Race conditions ****************************
+
+Topics:
+A) JVM Memory area for variables
+B) Race conditions
+C) Data Race
+D) Atomicity
+E) Atomic and Non-Atomic Variable
+F) Challenges with Multithreading
+
+When JVM start-up Heap memory created, it is shared by multiple thread.
+One memory area- : For every thread JVM create Run time Stack memory
+
+Heap Area:
+    1) Instance variable that are declare inside class but outside methods.
+    2) Static variabkes
+    3) Objects
+    4) Arrays : because it is  objects
+
+Statck Area:
+
+    All the parameter and the local varibake of the method are stored in to statck area.
 
 
+Atomic and Non Atomic Operation:
 
+Read and write are atomic operation provided 32 bit.
+
+except long and Double because use 64 bit
+
+
+Data Race: When 2 or more thread access same morey location at same time.W call all this process as data race.
+
+Implicit lock achieve by Synchronization.
+Explicit lock by using Concurrent API.
+
+########### Synch also called (Lock or Monitor) and Locking technique #############
+
+Critical Section : Share resource  between multiple thread at a time.
+
+By synchronization we can acheive Implicit lock.
+
+Drawback is only thread can access at a time and others are on waiting state. Lock based on the object
+
+Every Object has two area Synchronized and non synchronized. If multiple thread is running on different object then Synchronization is not required.
+
+Update should be in synchronization block.
+Read operation synchronizations is not required.
+
+Class Level Lock:
+ If we apply synchronization on Static variable or static method then it will be class level Lock.
+ If we apply synchronization on static method then we can call non static method and static instance synchronization .
+
+Synchronization Block:
+
+Add critical section block inside Synchronizes block.
 
 
 
