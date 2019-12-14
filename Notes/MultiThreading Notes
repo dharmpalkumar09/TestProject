@@ -118,6 +118,28 @@ Synchronization Block:
 
 Add critical section block inside Synchronizes block.
 
+When we are define sysnchronization on object level then use synchronized(this) but when we are using class level lock then use synchronized(Class.className)
+Hint : If method or class member  is static then use synchronized(Class.ClassName)
+
+We can also apply lock on object while passing object inside synchronized
+
+
+
+##################### Wait Notify Nad NotifyAll #######################################
+For inter-thread communication :
+
+We can wait() to force the current thread to wait unitl some other thread invokes notify() or notifyall() on the same object.
+
+public final void()
+public final native wait(long)
+public final void wait(ms,ns)
+
+The notify() and notifyall() methods are used for waking up threads that are waiting.Both are native native
+
+Note: Wait() , Notify() and Notifyall() all three methods object level method  belongs to Object class, Not belongs to the Thread class.
+
+
+
 
 
 
