@@ -138,6 +138,106 @@ The notify() and notifyall() methods are used for waking up threads that are wai
 
 Note: Wait() , Notify() and Notifyall() all three methods object level method  belongs to Object class, Not belongs to the Thread class.
 
+#################   Interface Lock  ################################################################
+
+Lock interface : We can achieve Explicit lock using this interface.
+
+There are two class which implements this Lock interface.:
+
+Core methods in interface:-
+1. Void Lock()
+2. boolean tryLock()
+3. boolean tryLock(longTime,TimeUnit unit)
+4. void lockinterrupt
+
+
+A) ReentrantLock
+B) ReentrantReadWriteLock
+
+**********   ReentrantLock ####################
+This is direct child class of Object class and Implementation class of Lock interface.
+Faireless policy: By deflaut it is false. When we set it as true then the thred which is waiting for long time will acquire the lock.
+
+FairSync();
+NonFairSync();
+
+Pernonal count: In Reentrant lock one thred can acquire lock multiple time. Internally it increase Personal count when it lock and decrement Personal count when it unlock.
+
+For class level clock we should use static RentrantLock.
+
+############## Why immutable class are thread safe? #######################
+
+***** Thread Safety ********
+1) can safely be use or shared in concurrent or multithreading environment.
+     And we can achieve by using
+        * Synchronized Block or Synchronized method
+        * Using Atomic variable
+        * Using Lock
+
+ But Immutable claees are automatically thread safe because , their state cannt be modified once created, if we ll try to do so it will create new object.
+
+ Thread safety simply means that two or more threads must work in cordination on shared resource or object. One should not over-ride the changes done by the other thread.
+
+ String is immutable class.
+
+ All wrapper class are  immutable.
+
+ Properties of immutability:-
+
+A) State of immutable object cann't be modified after construction, any modifications should result in new immutable object.
+B) All fields of immutable class should be final.
+C) Object must be properly constructed i.e. object reference must not leak during construction process.
+D) Class should be final in order to restrict sub-class for altering immutability of parent class.
+
+
+##################  Liveness Problem   ##################################################################
+
+A) DeadLock : Most liveness problem . and it arises bease of not proper use of synchronization.
+    When two or more threads are waiting for each other to release the resource or lock and get stuck for infinite time, the situation is called Deadlock.
+    For example :
+
+    Suppose there are two thread T1 and T2 , T1 is holding Obj1 and T2 holding Obj2 and T1 wants to access Obje2 and T2 wants to access Obj1.So here two threads are waiting each other to relaese resorce.
+
+B) Starvation: Starvation describes a situation where a  thread is unable to gain regular access to shared resource and is unable to make progress.
+
+C) LiveLock
+
+Technique to prevent these: -
+
+ What is liveness?
+
+ A concurrent application ability to execute in a timeliy manner is known as its liveness.
+
+ [Watch Dog program.]
+
+
+######################## Daemon Thread ################
+
+Are those thread which run in backgrounds. DT craetd by JVM.
+
+Major Diff: JVM wait for user thread but It does not wiat for DT. DT leaset prior than User thread.
+
+User thread and Daemon Thread: ->
+
+
+############################## Advance Multithreading #########################
+
+1) Thread pool and executor framework
+2) Thread Group
+3) Thread Local
+4) Callable and Future.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
