@@ -228,18 +228,32 @@ User thread and Daemon Thread: ->
 4) Callable and Future.
 
 
+#### Thread group: -> Thread group represents group of threads, that are responsible for doing similar.
 
+Advantage of thred group is that we can perform common operation on whole group.
 
+We can have subgroup under thread group.
 
+System is parent of all thread froup which is running into JVM.
 
+### Executor framework Thread Pool -->######
 
+Pool is collection of Object and when done object return to the pool.It is important because pooling make object sharebale memory and cpu both.
 
+submit return FutureTask object.
 
+ExecutorService internally using Pooling Algorithm.
 
+############### Callable and Future ################
 
+There is another way to create Thread.
 
+public Object call() throws Exception.
 
+Asynchronous can achieve.
 
+####### ThreadLocal ######
+We only have to use with non immutable class and on thread safe.
 
 
 
