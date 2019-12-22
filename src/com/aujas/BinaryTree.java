@@ -245,6 +245,17 @@ public class BinaryTree {
 
         System.out.println("Leaf Node is : ");
         printleafNode(root,0);
+        System.out.println(" Tree height "+treeheight(root));
+
+    }
+
+    public static int treeheight(Node root){
+        if (root == null)return 0;
+        int lDepth = treeheight(root.left);
+        int rDepth = treeheight(root.right);
+
+        if (lDepth>rDepth) return lDepth+1;
+        return rDepth+1;
 
     }
 }

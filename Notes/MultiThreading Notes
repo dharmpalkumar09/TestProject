@@ -253,9 +253,85 @@ public Object call() throws Exception.
 Asynchronous can achieve.
 
 ####### ThreadLocal ######
-We only have to use with non immutable class and on thread safe.
+We only have to use with non immutable class and on thread safe .
 
 
+#################### Concurrent Collections ###################################
+
+1) Problem with old Java collections
+2) ConcurrentModificationExceptions
+3) How concurrent collection solve the problem
+4) ConcurrentHashMap
+5) copyOnWriteArrayList
+6) copyOnWritearraySet
+7) CountDownLatch
+8) Cyclic Barrier
+9) Blocking Queue
+10) Exchengers
+11) Semaphores
+
+Problem occurs when multiple thread tries to access same Object.
+
+Legacy class like Vector, Stack and HashTable are synchronized.
+
+List and linkedlist are not synchronised.
+
+Collections utility like
+
+Collections.synchronizedList(List)
+Collections.synchronizedMap(map)
+Collections.synchronizedSet(set)
+
+****** Concurrent Modification Exception **************
+
+When iterator is iterating the collection by one thread and at the same time if another thread tries to modify the same collection , there is a possibility that program can throw ConcurrentModification Exception.
+
+Data Inconsistancy:
+
+java.util.concurrent
+In mordern
+
+concurrentHashMap: --> Map interface extended by concurrent map interface and concurrent interface is implemented by concurrenthashamp class.
+
+Internal working of ConcurrentHashMap:-->
+On read no lock and lock on segment of block. As we know hash map is devided into 16 block. Therefore 16 thread can work simultaniously.
+
+Concurency Level can be change while creating concurrentHashMap.
+
+Fail fast and fail safe. --> concurrent hashmap is fail safe.
 
 
+CopyOnWriteArrayList-->  it implements list interface and list imlemets collection interface.
 
+For read there is no lock, but for write it clone a copy and and do the update on copy of the
+
+CopyOnWriteArraySet--> Concurrent version of set. internally inpmelement arraylist. Holds unique objects.
+
+************ Count down latch **********************
+
+CountDownLatch is a kind of synchroniser which allows one Thread to wait for one or more Threads before starts processing
+It helps in inter thread communication and can improve the multithreading programs.
+
+The same we can acheive using wait and notify but it require lot of code to write, but in CountDownLatch can be done in just few lines.
+
+We can not re-use the countdownlatch , this is rectufied in cyclic barrier.
+
+
+********* Blocking Queue **********
+
+It is unique collection type which not only store elements but also supports flow control by introducing
+blocking if BlockingQueue is full or empty
+
+take() --> this method block the queue if queue is empty
+put() ---> Block the queue if queue is full.
+
+Basically it prevent the leackage.
+
+BlockingQueue is interface in java
+ArrayBlockingQueue
+LinkBlockingQueue
+PrioritylockingQueue
+
+These are the implementations of the Blocking queue.
+
+All works on FIFO order.
