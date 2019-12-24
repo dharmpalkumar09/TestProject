@@ -1,0 +1,10 @@
+############# SOLID Design Pattern ################
+
+A) S --> Single responsibility principle:--> A single class should have one and only one principle. It makes code managable and resuable.
+B) O--> Open close principle--> Open for extension and close for modification
+        Specification Design Patter.
+C) Liskov substitution principle --> If subclass is overwriting any methods make sure it is implemented correctly.Basically this principle works on inheritance.
+D) Interface segregation principle --> How to split interface into more interfaces.
+E) Dependency Inversion Principle. -->
+
+
