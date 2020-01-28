@@ -258,4 +258,9 @@ public class BinaryTree {
         return rDepth+1;
 
     }
+
+    public static int findheight(Node root){
+
+        return 0;
+    }
 }
